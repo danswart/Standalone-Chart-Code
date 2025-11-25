@@ -5,10 +5,32 @@
 ggplot2::theme_set(
   ggplot2::theme_minimal(base_size = 20) +
     ggplot2::theme(
-      plot.title = ggplot2::element_text(face = "bold", size = 26),
-      plot.subtitle = ggplot2::element_text(face = "bold", size = 24),
-      axis.title.x = ggplot2::element_text(face = "bold", size = 22),
-      axis.title.y = ggplot2::element_text(face = "bold", size = 22),
+      plot.title = ggplot2::element_text(
+        face = "bold",
+        color = "darkgreen",
+        size = 26
+      ),
+      plot.subtitle = ggplot2::element_text(
+        face = "bold",
+        color = "darkgreen",
+        size = 24
+      ),
+      plot.caption = ggplot2::element_text(
+        face = "italic",
+        color = "black",
+        size = 16,
+        hjust = 1 # 0 = left, 0.5 = center, 1 = right (default)
+      ),
+      axis.title.x = ggplot2::element_text(
+        face = "bold",
+        color = "blue",
+        size = 22
+      ),
+      axis.title.y = ggplot2::element_text(
+        face = "bold",
+        color = "blue",
+        size = 22
+      ),
       axis.text.x = ggplot2::element_text(
         face = "bold",
         size = 22,
@@ -135,12 +157,30 @@ ggplot2::ggplot(data, ggplot2::aes(x = x, y = y)) +
 
   # Add labels
   ggplot2::labs(
-    title = "Trended Control Chart with Recalced Limits",
+    title = "Trended Expectation Chart with Recalced Limits",
     subtitle = "Using Shewhart Rule #1 and Anhoej Run Rules",
     caption = "Perturbation of 3 at Point 16",
     x = "Observation",
     y = "Value"
+  ) +
+  ggplot2::theme(
+    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1),
+    legend.position = "none",
+    plot.title.position = "plot",
+    plot.title = ggtext::element_textbox_simple(
+      color = "darkgreen",
+      face = "bold",
+      fill = "yellow",
+      lineheight = 1.0,
+      padding = ggplot2::margin(5.5, 5.5, 0.0, 5.5),
+      margin = ggplot2::margin(0, 0, 5.5, 0)
+    ),
+    plot.subtitle = ggtext::element_textbox_simple(
+      color = "darkgreen",
+      face = "bold",
+      fill = "yellow",
+      lineheight = 1.0,
+      padding = ggplot2::margin(0.0, 5.5, 5.5, 5.5),
+      margin = ggplot2::margin(0, 0, 5.5, 0)
+    )
   )
-
-# Theme it
-# ggplot2::theme_minimal()
