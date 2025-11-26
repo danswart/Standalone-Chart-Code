@@ -183,7 +183,7 @@ desired_values <- unique(df1_modified$value)
 chart_type = "Untrended I-Chart"
 
 # Specify the caption for the plots
-caption <- c("\n Source:  https://tea.texas.gov/reports-and-data")
+caption <- glue::glue("Source: tea.texas.gov/reports-and-data")
 
 # Replace zeros in the value column with NA
 df1_modified$value <- ifelse(df1_modified$value == 0, NA, df1_modified$value)
@@ -320,13 +320,13 @@ i_chart <- ggplot2::ggplot(
 
 i_chart <- i_chart +
   ggplot2::theme(
-    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1),
+    axis.text.x = ggtext::element_markdown(angle = 45, hjust = 1),
     legend.position = "none",
     plot.title.position = "plot",
     plot.title = ggtext::element_textbox_simple(
       color = "darkgreen",
       face = "bold",
-      fill = "cornsilk",
+      fill = "yellow",
       lineheight = 1.0,
       padding = ggplot2::margin(5.5, 5.5, 0.0, 5.5),
       margin = ggplot2::margin(0, 0, 5.5, 0)
@@ -334,25 +334,25 @@ i_chart <- i_chart +
     plot.subtitle = ggtext::element_textbox_simple(
       color = "darkgreen",
       face = "bold",
-      fill = "cornsilk",
+      fill = "yellow",
       lineheight = 1.0,
       padding = ggplot2::margin(0.0, 5.5, 5.5, 5.5),
       margin = ggplot2::margin(0, 0, 5.5, 0)
     ),
-    plot.caption = ggplot2::element_text(
-      size = ggplot2::rel(.95),
-      hjust = 0,
-      vjust = 2,
+    plot.caption = ggtext::element_markdown(
+      family = "Cabin",
+      color = "darkblue",
       face = "italic",
-      color = "darkblue"
+      fill = "yellow",
+      lineheight = 1.0
     ),
-    strip.text = ggplot2::element_text(
+    strip.text = ggtext::element_markdown(
       color = "orange",
       size = ggplot2::rel(1.1),
       face = "italic",
       margin = ggplot2::margin(2, 0, 0.5, 0, "lines")
     ),
-    axis.text = ggplot2::element_text(color = "black"),
+    axis.text = ggtext::element_markdown(color = "black"),
     panel.background = ggplot2::element_rect(fill = "white", color = NA),
     plot.background = ggplot2::element_rect(fill = "white", color = NA)
   )
