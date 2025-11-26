@@ -320,10 +320,15 @@ i_chart <- ggplot2::ggplot(
 
 i_chart <- i_chart +
   ggplot2::theme(
-    axis.text.x = ggtext::element_markdown(angle = 45, hjust = 1),
+    axis.text.x = ggtext::element_markdown(
+      family = "Cabin",
+      angle = 45,
+      hjust = 1
+    ),
     legend.position = "none",
     plot.title.position = "plot",
     plot.title = ggtext::element_textbox_simple(
+      family = "Cabin",
       color = "darkgreen",
       face = "bold",
       fill = "yellow",
@@ -332,6 +337,7 @@ i_chart <- i_chart +
       margin = ggplot2::margin(0, 0, 5.5, 0)
     ),
     plot.subtitle = ggtext::element_textbox_simple(
+      family = "Cabin",
       color = "darkgreen",
       face = "bold",
       fill = "yellow",
@@ -347,12 +353,16 @@ i_chart <- i_chart +
       lineheight = 1.0
     ),
     strip.text = ggtext::element_markdown(
+      family = "Cabin",
       color = "orange",
       size = ggplot2::rel(1.1),
       face = "italic",
       margin = ggplot2::margin(2, 0, 0.5, 0, "lines")
     ),
-    axis.text = ggtext::element_markdown(color = "black"),
+    axis.text = ggtext::element_markdown(
+      family = "Cabin",
+      color = "black"
+    ),
     panel.background = ggplot2::element_rect(fill = "white", color = NA),
     plot.background = ggplot2::element_rect(fill = "white", color = NA)
   )
